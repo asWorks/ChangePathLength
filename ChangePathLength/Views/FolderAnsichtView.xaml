@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="ChangePathLength.Views.FolderAnsichtView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChangePathLength.Views"
+             xmlns:ViewModels="clr-namespace:ChangePathLength.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Border CornerRadius="6" Margin="20">
+        <Grid Background="#FFB63232">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="121*"/>
+                <RowDefinition Height="14*"/>
+            </Grid.RowDefinitions>
+
+            <!--<Grid.DataContext>
+            <ViewModels:FolderAndFilesModel/>
+        </Grid.DataContext>-->
+            <TextBlock Text="{Binding ThisTime}" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFE6BCBC"/>
+            <Grid x:Name="GridTreeView" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TreeView x:Name="FilesTreeView" ItemsSource="{Binding HardDisks}">
+                    <TreeView.ItemContainerStyle>
+                        <!-- 
+        This Style binds a TreeViewItem to a TreeViewItemViewModel. 
+        -->
+                        <Style TargetType="{x:Type TreeViewItem}">
+                            <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                            <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                            <Setter Property="FontWeight" Value="Normal" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+
+                    <TreeView.Resources>
+                        <HierarchicalDataTemplate DataType="{x:Type ViewModels:FoldersViewModel}" ItemsSource="{Binding SubFolders}"
+          >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="16" Height="16" Margin="3,0" Source="/ChangePathLength;component/Images/folder.png" />
+                                <TextBlock Text="{Binding Folderbezeichnung}" />
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+
+
+                    </TreeView.Resources>
+
+
+
+                </TreeView>
+                <TextBlock Grid.Column="1" Text="{Binding TestVModel}" Background="CadetBlue" MinWidth="100" Height="25"/>
+            </Grid>
+            <Button x:Name="GetDataContext" Content="GetContext" HorizontalAlignment="Left" Margin="10" Grid.Row="2" Background="#FFE44D4D"/>
+
+        </Grid>
+    </Border>
+</UserControl>

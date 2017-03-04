@@ -1,0 +1,40 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChangePathLength.Views"
+             xmlns:ViewModels="clr-namespace:ChangePathLength.ViewModels" x:Class="ChangePathLength.Views.ShowMailsView"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500" Width="Auto">
+    <UserControl.Resources>
+        <DataTemplate x:Key="MailFileTemplate">
+            <Border CornerRadius="6" BorderThickness="1" Margin="1" Background="{Binding BackGround}" BorderBrush="Black" Width="Auto">
+                <StackPanel Height="Auto" Width="Auto">
+                    <TextBox Text="{Binding Mailname}" Margin="2,0,2,2"/>
+                    <TextBlock Text="{Binding MailPath}" Margin="2,0,2,2" TextWrapping="Wrap" Width="740"/>
+                    <TextBlock Text="{Binding PathLength}" Margin="2,0,0,2"/>
+
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Left">
+        <!--<Grid.DataContext>
+            <ViewModels:ShowMailsViewModel/>
+        </Grid.DataContext>-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="listBox" Grid.Column="1" ItemTemplate="{DynamicResource MailFileTemplate}" ItemsSource="{Binding Mails}" Background="{x:Null}" Drop="listBox_Drop" AllowDrop="True" MouseLeftButtonDown="listBox_MouseLeftButtonDown" PreviewMouseLeftButtonDown="listBox_PreviewMouseLeftButtonDown"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,2,2,2">
+            <TextBlock Text="Anzahl Dateien : "/>
+            <TextBlock x:Name="MailsCount"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

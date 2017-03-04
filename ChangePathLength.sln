@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangePathLength", "ChangePathLength\ChangePathLength.csproj", "{F1D41FDC-72AA-4F22-AF95-3200FBFD75FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWIndow", "TestWIndow\TestWIndow.csproj", "{550D0102-4737-43EF-830E-B14001A151A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutlookToolsLib", "OutlookToolsLib\OutlookToolsLib.csproj", "{C951BF3A-1195-4DCD-A77B-EF4331197BC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{F1D41FDC-72AA-4F22-AF95-3200FBFD75FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1D41FDC-72AA-4F22-AF95-3200FBFD75FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1D41FDC-72AA-4F22-AF95-3200FBFD75FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{550D0102-4737-43EF-830E-B14001A151A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{550D0102-4737-43EF-830E-B14001A151A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{550D0102-4737-43EF-830E-B14001A151A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{550D0102-4737-43EF-830E-B14001A151A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C951BF3A-1195-4DCD-A77B-EF4331197BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C951BF3A-1195-4DCD-A77B-EF4331197BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C951BF3A-1195-4DCD-A77B-EF4331197BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C951BF3A-1195-4DCD-A77B-EF4331197BC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
