@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Diagnostics;
+using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace ChangePathLength.Views
 {
@@ -14,6 +16,12 @@ namespace ChangePathLength.Views
             //this.GridTreeView.DataContext = vModel;
         }
 
-        
+        private void GetDataContext_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            object dc = this.DataContext;
+
+            Debug.Print(dc.ToString());
+
+        }
     }
 }

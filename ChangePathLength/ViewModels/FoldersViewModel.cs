@@ -8,9 +8,7 @@ namespace ChangePathLength.ViewModels
     public class FoldersViewModel : PropertyChangedBase
     {
 
-        //bool hasSubFolders;
-        //string FolderShortName;
-        //string FolderFullPath;
+
         DirectoryInfo di;
 
         bool isLazyLoading;
@@ -25,6 +23,22 @@ namespace ChangePathLength.ViewModels
                 {
                     _Folderbezeichnung = value;
                     NotifyOfPropertyChange(() => Folderbezeichnung);
+                    //  isDirty = true;
+                }
+            }
+        }
+
+
+        private string _FolderFullPath;
+        public string FolderFullPath
+        {
+            get { return _FolderFullPath; }
+            set
+            {
+                if (value != _FolderFullPath)
+                {
+                    _FolderFullPath = value;
+                    NotifyOfPropertyChange(() => FolderFullPath);
                     //  isDirty = true;
                 }
             }
@@ -47,6 +61,22 @@ namespace ChangePathLength.ViewModels
         }
 
 
+
+        private FolderAnsichtViewModel _ParentViewModel;
+        public FolderAnsichtViewModel ParentViewModel
+        {
+            get { return _ParentViewModel; }
+            set
+            {
+                if (value != _ParentViewModel)
+                {
+                    _ParentViewModel = value;
+                    NotifyOfPropertyChange(() => ParentViewModel);
+                    //  isDirty = true;
+                }
+            }
+        }
+
         private ObservableCollection<FoldersViewModel> _SubFolders;
         public ObservableCollection<FoldersViewModel> SubFolders
         {
@@ -65,6 +95,22 @@ namespace ChangePathLength.ViewModels
                     _SubFolders = value;
                     NotifyOfPropertyChange(() => SubFolders);
                     //  isDirty = true;
+                }
+            }
+        }
+
+        private FoldersViewModel _SelectedSubFolder;
+        public FoldersViewModel SelectedSubFolder
+        {
+            get { return _SelectedSubFolder; }
+            set
+            {
+                if (value != _SelectedSubFolder)
+                {
+                    _SelectedSubFolder = value;
+                    ParentViewModel.SelectetItemSubDC = _SelectedSubFolder.FolderFullPath;
+                    NotifyOfPropertyChange(() => SelectedSubFolder);
+                    //isDirty = true;
                 }
             }
         }
@@ -101,6 +147,7 @@ namespace ChangePathLength.ViewModels
                     {
 
 
+                        
                         if (SubFolders.Contains(DummyChild))
                         {
 
@@ -127,9 +174,10 @@ namespace ChangePathLength.ViewModels
                 {
                     if (value)
                     {
+                        SelectedSubFolder = this;
                         if (SubFolders.Contains(DummyChild))
                         {
-                            
+
                             GetSubfolders();
 
                         }
@@ -170,10 +218,11 @@ namespace ChangePathLength.ViewModels
             // FolderName = new Folder(Startfolder);
             di = new DirectoryInfo(Startfolder);
 
-            
+
             Folderbezeichnung = di.Name;
+            FolderFullPath = di.FullName;
             Parent = parent;
-            TestVModel = Folderbezeichnung;
+
             isLazyLoading = LoadLazy;
             if (LoadLazy)
             {
@@ -184,7 +233,7 @@ namespace ChangePathLength.ViewModels
 
                     SubFolders.Add(DummyChild);
                 }
-                
+
             }
             else
             {
@@ -192,7 +241,7 @@ namespace ChangePathLength.ViewModels
             }
 
             // IsExpanded = true;
-            
+
         }
 
         public void GetSubfolders()
@@ -201,7 +250,7 @@ namespace ChangePathLength.ViewModels
             {
                 di = new DirectoryInfo(FolderName.FolderName);
             }
-            
+
             var sFolders = di.GetDirectories();
             if (sFolders.Length > 0)
             {
@@ -221,7 +270,8 @@ namespace ChangePathLength.ViewModels
                 try
                 {
                     var f = new FoldersViewModel(item.FullName, this, isLazyLoading);
-                    
+                    f.ParentViewModel = this.ParentViewModel;
+
                     SubFolders.Add(f);
                 }
                 catch (System.Exception)
@@ -229,7 +279,7 @@ namespace ChangePathLength.ViewModels
 
 
                 }
-                
+
             }
 
             di = null;

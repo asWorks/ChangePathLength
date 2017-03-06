@@ -8,7 +8,7 @@ namespace ChangePathLength.ViewModels
     public class FolderAnsichtViewModel : Screen
     {
 
-        
+
 
 
 
@@ -30,8 +30,11 @@ namespace ChangePathLength.ViewModels
         public FolderAnsichtViewModel()
         {
             FoldersViewModel CDisk = new FoldersViewModel("C:", null, true);
+            CDisk.ParentViewModel = this;
             FoldersViewModel GDisk = new FoldersViewModel("G:", null, true);
+            GDisk.ParentViewModel = this;
             FoldersViewModel FDisk = new FoldersViewModel("F:", null, true);
+            FDisk.ParentViewModel = this;
 
             HardDisks = new ObservableCollection<FoldersViewModel>();
 
@@ -46,6 +49,23 @@ namespace ChangePathLength.ViewModels
 
         }
 
+
+
+
+        private string _SelectetItemSubDC;
+        public string SelectetItemSubDC
+        {
+            get { return _SelectetItemSubDC; }
+            set
+            {
+                if (value != _SelectetItemSubDC)
+                {
+                    _SelectetItemSubDC = value;
+                    NotifyOfPropertyChange(() => SelectetItemSubDC);
+                    //  isDirty = true;
+                }
+            }
+        }
 
 
     }

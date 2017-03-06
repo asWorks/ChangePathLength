@@ -14,17 +14,22 @@
                 <RowDefinition Height="121*"/>
                 <RowDefinition Height="14*"/>
             </Grid.RowDefinitions>
+            <Grid.DataContext>
+                <ViewModels:FolderAnsichtViewModel/>
+            </Grid.DataContext>
 
-            <!--<Grid.DataContext>
-            <ViewModels:FolderAndFilesModel/>
-        </Grid.DataContext>-->
             <TextBlock Text="{Binding ThisTime}" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFE6BCBC"/>
             <Grid x:Name="GridTreeView" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="4*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <TreeView x:Name="FilesTreeView" ItemsSource="{Binding HardDisks}">
+                <TreeView x:Name="FilesTreeView" ItemsSource="{Binding HardDisks}" MinWidth="300">
                     <TreeView.ItemContainerStyle>
                         <!-- 
         This Style binds a TreeViewItem to a TreeViewItemViewModel. 
@@ -56,9 +61,12 @@
 
 
                 </TreeView>
-                <TextBlock Grid.Column="1" Text="{Binding TestVModel}" Background="CadetBlue" MinWidth="100" Height="25"/>
+                <TextBlock Grid.Column="1" Text="{Binding SelectetItemSubDC}" MinWidth="100" Height="25" Style="{DynamicResource asTestStyle}"/>
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+                    <TextBlock  Text="{Binding SelectetItemSubDC}" Style="{DynamicResource asTestStyle}"/>
+                </StackPanel>
             </Grid>
-            <Button x:Name="GetDataContext" Content="GetContext" HorizontalAlignment="Left" Margin="10" Grid.Row="2" Background="#FFE44D4D"/>
+            <Button x:Name="GetDataContext" Content="GetContext" HorizontalAlignment="Left" Margin="10" Grid.Row="2" Background="#FFE44D4D" Click="GetDataContext_Click"/>
 
         </Grid>
     </Border>
