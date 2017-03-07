@@ -2,6 +2,7 @@
 using ChangePathLength.Interfaces;
 using System;
 using System.ComponentModel.Composition;
+using System.Diagnostics;
 using System.Windows.Threading;
 
 namespace ChangePathLength.ViewModels
@@ -115,9 +116,70 @@ namespace ChangePathLength.ViewModels
             MailsViewModel.TestAddFile();
         }
 
-        public void UpdateTime()
+        public void ShowTime()
         {
-            CurrentTime = DateTime.Now.ToLongTimeString();
+            //string filename = @"C:\test\MT1\MT2\MT3\MT4_2\qwertzujhdgsfatsrsfsrefetdgdzdhdudjdijdhdzdtdgdrfsrewsslkjhgdfdtrgrhfzuiidjdhdgdbdfsvsfsrsterwfedsrstszsusjskdldloforjdkkdd\qwertzuiopüasdfghjklöänyxcvbnm\qwertzasderftjgkoohöhhhöhöhöhöhöhöhlhlhoollhohohlhlhohlhl\qswujfhfgfzffhfufhfufhfufhfufhufhfiijfkfjfhflldödpoflfkfifufjfzfhzrhhrhrjrjrkrkrlrlrasbdjdbdgh\qwedijfjfzfhfjfkfkflflflflflflflfkfkfjfjffjffjfmfjfmfjfmfjfmfjfmfjffufifjfjfmkr\qwdhuhfufzhfzfhgzutjtigjkgogkgjgugjgugjujujtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutj\Mails\";
+
+
+            string res = LongFileNamesToolsLib.LongFileNames.asMakeShortFileName(@"C:\test\MT1\MT2\MT3\MT4_2\qwertzujhdgsfatsrsfsrefetdgdzdhdudjdijdhdzdtdgdrfsrewsslkjhgdfdtrgrhfzuiidjdhdgdbdfsvsfsrsterwfedsrstszsusjskdldloforjdkkdd\qwertzuiopüasdfghjklöänyxcvbnm\qwertzasderftjgkoohöhhhöhöhöhöhöhöhlhlhoollhohohlhlhohlhl\qswujfhfgfzffhfufhfufhfufhfufhufhfiijfkfjfhflldödpoflfkfifufjfzfhzrhhrhrjrjrkrkrlrlrasbdjdbdgh\qwedijfjfzfhfjfkfkflflflflflflflfkfkfjfjffjffjfmfjfmfjfmfjfmfjfmfjffufifjfjfmkr\qwdhuhfufzhfzfhgzutjtigjkgogkgjgugjgugjujujtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutj\Mails\Crispr Cas9  Kontinente  Flughunde und alte Geschichten.msg");
+
+            try
+            {
+                Process p = new Process();
+                p.StartInfo.UseShellExecute = true;
+               
+                p.StartInfo.FileName = res;
+                p.Start();
+                
+
+                //System.Diagnostics.Process runScripts = new System.Diagnostics.Process();
+                //runScripts.StartInfo.FileName = @"Crispr Cas9  Kontinente  Flughunde und alte Geschichten.msg";
+                //// new
+                //runScripts.StartInfo.WorkingDirectory = @"C:\test\MT1\MT2\MT3\MT4_2\QWERTZ~1\QWERTZ~1\QWERTZ~1\QSWUJF~1\QWEDIJ~1\QWDHUH~1\Mails";
+                //runScripts.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                //runScripts.StartInfo.UseShellExecute = true;
+                //runScripts.StartInfo.RedirectStandardOutput = false;
+                //runScripts.Start();
+            }
+            catch (Exception ex)
+            {
+                System.Text.StringBuilder sb = new System.Text.StringBuilder("Exception Message : ");
+
+                sb.AppendLine(ex.Message);
+                if (ex.InnerException != null)
+                {
+                    sb.AppendLine(ex.InnerException.Message);
+                }
+
+                Debug.Print(sb.ToString());
+            }
+            
+
+        }
+
+
+        public void TestShortName()
+        {
+            try
+            {
+                string res = LongFileNamesToolsLib.LongFileNames.asMakeShortFileName(@"C:\test\MT1\MT2\MT3\MT4_2\qwertzujhdgsfatsrsfsrefetdgdzdhdudjdijdhdzdtdgdrfsrewsslkjhgdfdtrgrhfzuiidjdhdgdbdfsvsfsrsterwfedsrstszsusjskdldloforjdkkdd\qwertzuiopüasdfghjklöänyxcvbnm\qwertzasderftjgkoohöhhhöhöhöhöhöhöhlhlhoollhohohlhlhohlhl\qswujfhfgfzffhfufhfufhfufhfufhufhfiijfkfjfhflldödpoflfkfifufjfzfhzrhhrhrjrjrkrkrlrlrasbdjdbdgh\qwedijfjfzfhfjfkfkflflflflflflflfkfkfjfjffjffjfmfjfmfjfmfjfmfjfmfjffufifjfjfmkr\qwdhuhfufzhfzfhgzutjtigjkgogkgjgugjgugjujujtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutjtutj\Mails\Crispr Cas9  Kontinente  Flughunde und alte Geschichten.msg");
+
+                Debug.Print(res);
+            }
+            catch (Exception ex)
+            {
+
+                System.Text.StringBuilder sb = new System.Text.StringBuilder("Exception Message : ");
+
+                sb.AppendLine(ex.Message);
+                if (ex.InnerException != null)
+                {
+                    sb.AppendLine(ex.InnerException.Message);
+                }
+
+                Debug.Print(sb.ToString());
+            }
+            
         }
 
         public void Handle(Events.EventMessage message)

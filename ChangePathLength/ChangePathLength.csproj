@@ -127,6 +127,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\asLibs\Files\LongFileNamesToolsLib\LongFileNamesToolsLib.csproj">
+      <Project>{230e5b32-12b3-48f5-a621-bbf2e56c4b16}</Project>
+      <Name>LongFileNamesToolsLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OutlookToolsLib\OutlookToolsLib.csproj">
       <Project>{c951bf3a-1195-4dcd-a77b-ef4331197bc9}</Project>
       <Name>OutlookToolsLib</Name>

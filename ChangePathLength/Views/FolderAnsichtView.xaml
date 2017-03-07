@@ -14,9 +14,9 @@
                 <RowDefinition Height="121*"/>
                 <RowDefinition Height="14*"/>
             </Grid.RowDefinitions>
-            <Grid.DataContext>
+            <!--<Grid.DataContext>
                 <ViewModels:FolderAnsichtViewModel/>
-            </Grid.DataContext>
+            </Grid.DataContext>-->
 
             <TextBlock Text="{Binding ThisTime}" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFE6BCBC"/>
             <Grid x:Name="GridTreeView" Grid.Row="1">
@@ -64,6 +64,7 @@
                 <TextBlock Grid.Column="1" Text="{Binding SelectetItemSubDC}" MinWidth="100" Height="25" Style="{DynamicResource asTestStyle}"/>
                 <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
                     <TextBlock  Text="{Binding SelectetItemSubDC}" Style="{DynamicResource asTestStyle}"/>
+                    <Button Content="CopyPath" x:Name="Copypath"/>
                 </StackPanel>
             </Grid>
             <Button x:Name="GetDataContext" Content="GetContext" HorizontalAlignment="Left" Margin="10" Grid.Row="2" Background="#FFE44D4D" Click="GetDataContext_Click"/>

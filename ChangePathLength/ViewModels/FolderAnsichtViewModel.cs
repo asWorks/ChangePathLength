@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
+using System.Windows;
 
 namespace ChangePathLength.ViewModels
 {
@@ -25,6 +26,11 @@ namespace ChangePathLength.ViewModels
                     //  isDirty = true;
                 }
             }
+        }
+
+        public void CopyPath()
+        {
+            Clipboard.SetData(DataFormats.Text, SelectetItemSubDC??"IsNull");
         }
 
         public FolderAnsichtViewModel()

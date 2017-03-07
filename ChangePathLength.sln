@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWIndow", "TestWIndow\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutlookToolsLib", "OutlookToolsLib\OutlookToolsLib.csproj", "{C951BF3A-1195-4DCD-A77B-EF4331197BC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongFileNamesToolsLib", "..\..\..\asLibs\Files\LongFileNamesToolsLib\LongFileNamesToolsLib.csproj", "{230E5B32-12B3-48F5-A621-BBF2E56C4B16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C951BF3A-1195-4DCD-A77B-EF4331197BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C951BF3A-1195-4DCD-A77B-EF4331197BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C951BF3A-1195-4DCD-A77B-EF4331197BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{230E5B32-12B3-48F5-A621-BBF2E56C4B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{230E5B32-12B3-48F5-A621-BBF2E56C4B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{230E5B32-12B3-48F5-A621-BBF2E56C4B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{230E5B32-12B3-48F5-A621-BBF2E56C4B16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

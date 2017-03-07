@@ -85,6 +85,7 @@
             <Button x:Name="TestAddFile" Content="AddFile" Margin="10" Style="{DynamicResource MyButtonStyle}" Height="40"/>
             <Button x:Name="TestBinding" Content="Test Binding" Margin="10" Style="{DynamicResource MyButtonStyle}" Height="40"/>
             <Button x:Name="ShowTime" Content="Update time" Margin="10" Style="{DynamicResource MyButtonStyle}" Height="40"/>
+            <Button x:Name="TestShortName" Content="Test ShortName" Margin="10" Style="{DynamicResource MyButtonStyle}" Height="40"/>
             <Button x:Name="ShowAddMails" Content="Mails hinzufügen" Margin="10" Style="{DynamicResource MyButtonStyle}" Height="40"/>
             <TextBlock x:Name="CurrentTime" Margin="18,0,8,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="94"/>
 
